@@ -1,0 +1,9 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+minimumRequiredVersion: 0.12.0
+directories:
+- path: config/upstream
+  contents:
+  - path: .
+    http:
+      url: https://github.com/tektoncd/dashboard/releases/download/v0.24.1/tekton-dashboard-release.yaml
