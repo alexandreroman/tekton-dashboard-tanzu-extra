@@ -21,7 +21,20 @@ Use this command to get access to the dashboard:
 kubectl -n tekton-pipelines port-forward svc/tekton-dashboard 9097:9097
 ```
 
-Now go to http://localhost:9097 to use Tekton Dashboard.
+Now go to <http://localhost:9097> to use Tekton Dashboard.
+
+You may get better results with `kubectl proxy`,
+as I found out that port forwarding would sometimes drop the connection to the dashboard.
+
+Use this command to open a connection to your cluster:
+
+```shell
+kubectl proxy
+```
+
+Then head over to
+<http://localhost:8001/api/v1/namespaces/tekton-pipelines/services/tekton-dashboard:http/proxy/>
+in order to access the dashboard.
 
 You may want to use an `Ingress` resource instead to expose the dashboard:
 
